@@ -1,0 +1,15 @@
+declare "grafana_cloud" {
+  argument "otlp_endpoint" {
+    optional = false
+  }
+  otelcol.exporter.otlp "grafana_cloud" {
+      client {
+          endpoint = argument.otlp_endpoint.value
+          auth     = otelcol.auth.basic.grafana_cloud_traces.handler
+      }
+  }
+  otelcol.auth.basic "grafana_cloud_traces" {
+      username = sys.env("GCLOUD_OTLP_USERNAME")
+      password = sys.env("GCLOUD_RW_API_KEY")
+  }
+}
