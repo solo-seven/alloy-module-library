@@ -1,4 +1,4 @@
-declare "linux_node_linux" {
+declare "linux_node" {
   discovery.relabel "integrations_node_exporter" {
     targets = prometheus.exporter.unix.integrations_node_exporter.targets
 
