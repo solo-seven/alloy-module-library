@@ -111,7 +111,7 @@ declare "linux_node" {
       url = "https://logs-prod-017.grafana.net/loki/api/v1/push"
 
       basic_auth {
-        username = sys.env("GCLOUD_LOGS_USERNAME)
+        username = sys.env("GCLOUD_LOGS_USERNAME")
         password = sys.env("GCLOUD_RW_API_KEY")
       }
     }
